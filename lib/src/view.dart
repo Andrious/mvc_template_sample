@@ -1,0 +1,52 @@
+///
+/// Copyright (C) 2020 Andrious Solutions
+///
+/// This program is free software; you can redistribute it and/or
+/// modify it under the terms of the GNU General Public License
+/// as published by the Free Software Foundation; either version 3
+/// of the License, or any later version.
+///
+/// You may obtain a copy of the License at
+///
+///  http://www.apache.org/licenses/LICENSE-2.0
+///
+///
+/// Unless required by applicable law or agreed to in writing, software
+/// distributed under the License is distributed on an "AS IS" BASIS,
+/// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+/// See the License for the specific language governing permissions and
+/// limitations under the License.
+///
+///          Created  17 Apr 2019
+///
+
+export 'dart:io' show Platform;
+
+export 'package:mvc_application/view.dart';
+
+export 'package:mvc_template/src/app/view/view.dart';
+
+export 'package:mvc_template/src/home/view/view.dart';
+
+export 'package:mvc_template/src/home/view/android/android.dart';
+
+export 'package:mvc_template/src/home/view/ios/ios.dart';
+
+export 'package:mvc_template/src/home/view/ios/styles.dart';
+
+export 'package:mvc_template/src/home/view/ios/settings/settings.dart';
+
+export 'package:mvc_template/src/home/view/ios/settings/settings_group.dart';
+
+export 'package:mvc_template/src/home/view/ios/settings/settings_item.dart';
+
+export 'package:mvc_template/src/home/view/android/drawer/platform_drawer.dart';
+
+export 'package:mvc_template/src/home/view/android/menu/menu.dart';
+
+//ToDo Remove references to 'Contacts app' and just use the template
+export 'package:mvc_template/src/app/examples/contacts/src/view.dart'
+    hide MyAndroid, MyHome, MyMenu;
+
+//ToDo Remove export below 'disconnect' the 'Shrine' sample app.export
+export 'package:mvc_template/src/app/examples/shrine/src/view.dart';

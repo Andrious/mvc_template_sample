@@ -1,0 +1,93 @@
+name: mvc_template
+description: An MVC Project Template
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.3
+
+  ## For the Contacts app
+  # https://pub.dev/packages/dbutils
+  dbutils: ^2.0.0
+  
+  ## For the Shrine app
+  # https://pub.dev/packages/i10n_translator
+  i10n_translator: ^1.0.0
+
+  flutter_localizations:
+    sdk: flutter
+
+  flutter_cupertino_localizations: ^1.0.0
+
+  # https://pub.dev/packages/mvc_application
+  mvc_application: ^3.0.0
+  #  path: ../../../Flutter/packages/mvc_application
+
+  # https://pub.dev/packages/font_awesome_flutter
+  font_awesome_flutter: ^8.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# The following section is specific to Flutter.
+flutter:
+  assets:
+    - assets/i10n/i10n.csv
+    - assets/diamond.png
+    - assets/slanted_menu.png
+    - assets/0-0.jpg
+    - assets/1-0.jpg
+    - assets/2-0.jpg
+    - assets/3-0.jpg
+    - assets/4-0.jpg
+    - assets/5-0.jpg
+    - assets/6-0.jpg
+    - assets/7-0.jpg
+    - assets/8-0.jpg
+    - assets/9-0.jpg
+    - assets/10-0.jpg
+    - assets/11-0.jpg
+    - assets/12-0.jpg
+    - assets/13-0.jpg
+    - assets/14-0.jpg
+    - assets/15-0.jpg
+    - assets/16-0.jpg
+    - assets/17-0.jpg
+    - assets/18-0.jpg
+    - assets/19-0.jpg
+    - assets/20-0.jpg
+    - assets/21-0.jpg
+    - assets/22-0.jpg
+    - assets/23-0.jpg
+    - assets/24-0.jpg
+    - assets/25-0.jpg
+    - assets/26-0.jpg
+    - assets/27-0.jpg
+    - assets/28-0.jpg
+    - assets/29-0.jpg
+    - assets/30-0.jpg
+    - assets/31-0.jpg
+    - assets/32-0.jpg
+    - assets/33-0.jpg
+    - assets/34-0.jpg
+    - assets/35-0.jpg
+    - assets/36-0.jpg
+    - assets/37-0.jpg
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
