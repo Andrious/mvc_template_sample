@@ -30,16 +30,12 @@ import 'package:mvc_template/src/controller.dart';
 class ContactListState extends StateMVC<MyHome> {
   /// As part of the MVC design pattern,
   /// introduce the 'Controller' to this 'View.'
-  ContactListState() : super(Controller()) {
+  ContactListState() : super(Contact()) {
     /// Right-click on 'controller' and see where its defined!
     this.con = controller;
   }
 
-  /// As it happens, this Controller uses yet another controller.
-  /// It's part of the 'Contacts app' example 'superimposed' on this template.
-  /// Thus, you're going to see references like such, 'con.con.'
-  /// Normally, you would merely modify the Controller code directly.
-  Controller con;
+  Contact con;
 
   void initState() {
     super.initState();
@@ -56,12 +52,12 @@ class ContactListState extends StateMVC<MyHome> {
         platform: Theme.of(context).platform,
       ),
       child: Scaffold(
-        key: con.con.list.scaffoldKey,
+        key: con.list.scaffoldKey,
         appBar: AppBar(title: Text('Contacts Example'), actions: <Widget>[
           FlatButton(
               child: Icon(Icons.sort_by_alpha, color: Colors.white),
               onPressed: () {
-                con.con.list.sort();
+                con.list.sort();
               }),
           AppMenu.show(this),
         ]),
@@ -74,7 +70,7 @@ class ContactListState extends StateMVC<MyHome> {
                 fullscreenDialog: true,
               );
               await Navigator.of(context).push(route);
-              con.con.list.refresh();
+              await con.list.refresh();
             }),
         body: contactList(con),
       ),
@@ -82,17 +78,17 @@ class ContactListState extends StateMVC<MyHome> {
   }
 }
 
-Widget contactList(Controller con) {
+Widget contactList(Contact con) {
   // App theme may change.
   ThemeData _theme = App.theme;
   return SafeArea(
-    child: con.con.list.items == null
+    child: con.list.items == null
         ? Center(child: CircularProgressIndicator())
         : ListView.builder(
-            itemCount: con.con.list.items?.length ?? 0,
+            itemCount: con.list.items?.length ?? 0,
             itemBuilder: (BuildContext context, int index) {
-              Object c = con.con.child(index);
-              return con.con.list.displayName.onDismissible(
+              Object c = con.child(index);
+              return con.list.displayName.onDismissible(
                 child: Container(
                   decoration: BoxDecoration(
                       color: _theme.canvasColor,
@@ -111,27 +107,27 @@ Widget contactList(Controller con) {
                       }
                       Navigator.of(context)
                           .push(route)
-                          .then((_) => con.con.list.refresh());
+                          .then((_) => con.list.refresh());
                     },
-                    leading: con.con.list.displayName.circleAvatar,
-                    title: con.con.list.displayName.text,
+                    leading: con.list.displayName.circleAvatar,
+                    title: con.list.displayName.text,
                   ),
                 ),
                 dismissed: (DismissDirection direction) {
-                  con.con.delete(c).then((_) => con.con.list.refresh());
+                  con.delete(c).then((_) => con.list.refresh());
                   final String action =
                       (direction == DismissDirection.endToStart)
                           ? 'deleted'
                           : 'archived';
-                  con.con.list.scaffoldKey.currentState?.showSnackBar(SnackBar(
+                  con.list.scaffoldKey.currentState?.showSnackBar(SnackBar(
                       duration: Duration(milliseconds: 8000),
                       content: Text('You $action an item.'),
                       action: SnackBarAction(
                           label: 'UNDO',
                           onPressed: () {
-                            con.con.edit
+                            con.edit
                                 .undelete(c)
-                                .then((_) => con.con.list.refresh());
+                                .then((_) => con.list.refresh());
                           })));
                 },
               );

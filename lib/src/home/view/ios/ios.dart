@@ -44,10 +44,9 @@ class MyiOS extends StateMVC<MyHome> {
     initAsync();
   }
 
-  // The View!
+  // The iOS View!
   @override
   Widget build(BuildContext context) {
-//    if (!con.app.loggedIn) return SignIn();
     return CupertinoTabScaffold(
       tabBar: CupertinoTabBar(items: [
         BottomNavigationBarItem(
@@ -71,7 +70,7 @@ class MyiOS extends StateMVC<MyHome> {
               return CupertinoPageScaffold(
                 key: con.con.list.scaffoldKey,
                 child: Material(
-                  child: contactList(con),
+                  child: contactList(con.con),
                 ),
               );
             });

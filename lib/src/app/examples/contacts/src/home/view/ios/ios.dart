@@ -77,7 +77,7 @@ class MyiOS extends StateMVC<MyHome> {
                 key: con.con.list.scaffoldKey,
                 navigationBar: CupertinoNavigationBar(),
                 child: Material(
-                  child: contactList(con),
+                  child: contactList(con.con),
                 ),
               );
             });

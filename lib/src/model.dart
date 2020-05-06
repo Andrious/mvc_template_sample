@@ -22,16 +22,32 @@
 
 export 'package:mvc_application/model.dart';
 
-export 'package:dbutils/sqlite_db.dart' show SQLiteDB, Database;
-
-export 'package:package_info/package_info.dart' show PackageInfo;
-
 export 'package:mvc_template/src/home/model/model.dart';
+
+//ToDo A SQLite database is used in this project.
+export 'package:dbutils/sqlite_db.dart' show SQLiteDB, Database;
 
 //ToDo Remove references to 'Contacts app' and just use the template
 export 'package:mvc_template/src/app/examples/contacts/src/model.dart';
 
-//ToDo Remove export below 'disconnect' the 'Shrine' sample app.export
+//ToDo Remove references to 'Shrine app' and just use the template
 export 'package:mvc_template/src/app/examples/shrine/src/model.dart';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
