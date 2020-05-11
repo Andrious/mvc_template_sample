@@ -45,6 +45,7 @@ class MyApp extends App {
   @override
   createView() {
     var app = AppCon();
+
     if (app.shrine) {
       return ShrineApp();
     } else {

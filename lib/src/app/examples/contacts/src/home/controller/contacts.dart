@@ -43,7 +43,8 @@ import 'package:mvc_template/src/model.dart'
         Prefix,
         Region,
         Street,
-        Suffix;
+        Suffix,
+        Widget;
 
 import 'package:mvc_template/src/view.dart'
     show BuildContext, FieldWidgets, FormState, GlobalKey, ScaffoldState;
@@ -150,6 +151,10 @@ class ContactList extends ContactFields {
     _postcode = Postcode(_contact);
     _country = Country(_contact);
   }
+
+  Widget get leading => displayName.circleAvatar;
+
+  Widget get title => displayName.text;
 }
 
 class ContactFields {

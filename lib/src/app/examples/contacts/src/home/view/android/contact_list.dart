@@ -55,10 +55,9 @@ class ContactListState extends StateMVC<MyHome> {
         key: con.list.scaffoldKey,
         appBar: AppBar(title: Text('Contacts Example'), actions: <Widget>[
           FlatButton(
-              child: Icon(Icons.sort_by_alpha, color: Colors.white),
-              onPressed: () {
-                con.list.sort();
-              }),
+            child: Icon(Icons.sort_by_alpha, color: Colors.white),
+            onPressed: con.list.sort,
+          ),
           AppMenu.show(this),
         ]),
         drawer: platformDrawer(AppCon(), this),
