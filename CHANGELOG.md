@@ -1,3 +1,7 @@
+## 1.3.0
+ May 12, 2020
+- Replace con.setBuild(); with con.refresh(); _street = street; con.title; con = AppCon();
+
 ## 1.2.0
  May 11, 2020
 - Reformat listing code into include getters.

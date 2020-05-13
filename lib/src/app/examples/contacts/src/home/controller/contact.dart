@@ -70,8 +70,6 @@ class Contact extends ControllerMVC {
     super.dispose();
   }
 
-  void setBuild() => _this?.refresh();
-
   Future<List<m.Contact>> getContacts() async {
     List<m.Contact> contacts = await _model.getContacts();
     if (_sortedAlpha) contacts.sort();

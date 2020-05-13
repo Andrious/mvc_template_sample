@@ -25,37 +25,40 @@ import 'package:mvc_template/src/view.dart';
 
 import 'package:mvc_template/src/controller.dart';
 
-Drawer platformDrawer(AppCon con, StateMVC state) => Drawer(
-      child: ListView(
-        children: <Widget>[
-          SettingsGroup(
-            items: [
-              SettingsItem(
-                label: '',
-                content: Text("Change settings and 'Hot Reload.'"),
+Drawer platformDrawer(StateMVC state) {
+  final con = AppCon();
+  return Drawer(
+    child: ListView(
+      children: <Widget>[
+        SettingsGroup(
+          items: [
+            SettingsItem(
+              label: '',
+              content: Text("Change settings and 'Hot Reload.'"),
+            ),
+            SettingsItem(
+              label: "Shrine",
+              content: CupertinoSwitch(
+                value: con.shrine,
+                onChanged: (bool change) {
+                  con.onChangedApp(change);
+                  state.setState(() {});
+                },
               ),
-              SettingsItem(
-                label: "Shrine",
-                content: CupertinoSwitch(
-                  value: con.shrine,
-                  onChanged: (bool change) {
-                    con.onChangedApp(change);
-                    state.setState((){});
-                  },
-                ),
+            ),
+            SettingsItem(
+              label: "iOS",
+              content: CupertinoSwitch(
+                value: con.useCupertino,
+                onChanged: (bool change) {
+                  con.onChangediOS(change);
+                  state.setState(() {});
+                },
               ),
-              SettingsItem(
-                label: "iOS",
-                content: CupertinoSwitch(
-                  value: con.useCupertino,
-                  onChanged: (bool change) {
-                    con.onChangediOS(change);
-                    state.setState((){});
-                  },
-                ),
-              )
-            ],
-          ),
-        ],
-      ),
-    );
+            )
+          ],
+        ),
+      ],
+    ),
+  );
+}

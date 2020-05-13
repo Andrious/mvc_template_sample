@@ -35,78 +35,77 @@ class ContactDetailsPage extends StatelessWidget {
   ContactDetailsPage({this.contact, Key key})
       : con = Controller(),
         super(key: key) {
-    con.con.edit.init(contact);
+    con.edit.init(contact);
   }
   final Object contact;
   final Controller con;
 
   @override
-  Widget build(BuildContext context) {
-    return Theme(
-        data: ThemeData(
-          brightness: Brightness.light,
-          primarySwatch: App.colorTheme, //Colors.indigo,
-          platform: Theme.of(context).platform,
-        ),
-        child: SetState(
-            builder: (context, _) => Scaffold(
-            appBar: App.useCupertino
-                ? null
-                : AppBar(title: con.con.edit.displayName.text, actions: [
-                    FlatButton(
-                        child: Icon(Icons.delete, color: Colors.white),
-                        onPressed: () {
-                          showBox(
-                                  text: 'Delete this contact?',
-                                  context: context)
-                              .then((bool delete) {
-                            if (delete)
-                              con.con.delete(contact).then((bool delete) {
-                                if (delete) con.con.list.refresh();
-                                Navigator.of(context).pop();
+  Widget build(BuildContext context) => Theme(
+      data: ThemeData(
+        brightness: Brightness.light,
+        primarySwatch: App.colorTheme, //Colors.indigo,
+        platform: Theme.of(context).platform,
+      ),
+      child: SetState(
+          builder: (context, _) => Scaffold(
+                appBar: App.useCupertino
+                    ? null
+                    : AppBar(title: con.title, actions: [
+                        FlatButton(
+                            child: Icon(Icons.delete, color: Colors.white),
+                            onPressed: () {
+                              showBox(
+                                      text: 'Delete this contact?',
+                                      context: context)
+                                  .then((bool delete) {
+                                if (delete)
+                                  con.delete(contact).then((bool delete) {
+                                    if (delete) con.list.refresh();
+                                    Navigator.of(context).pop();
+                                  });
                               });
-                          });
-                        }),
-                  ]),
-            bottomNavigationBar: SimpleBottomAppBar(
-              button01: HomeBarButton(onPressed: () {
-                Navigator.of(context).pop();
-              }),
-              button02: SearchBarButton(),
-              button03: EditBarButton(onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                    builder: (BuildContext context) => AddContactPage(
-                        contact: contact, title: 'Edit a contact')));
-              }),
-            ),
-            body: CustomScrollView(slivers: <Widget>[
-                      SliverList(
-                        delegate: SliverChildListDelegate(<Widget>[
-                          con.con.edit.givenName.onListTile(tap: () {
-                            editContact(contact, context);
-                          }),
-                          con.con.edit.middleName.onListTile(tap: () {
-                            editContact(contact, context);
-                          }),
-                          con.con.edit.familyName.onListTile(tap: () {
-                            editContact(contact, context);
-                          }),
-                          con.con.edit.prefix.onListTile(tap: () {
-                            editContact(contact, context);
-                          }),
-                          con.con.edit.suffix.onListTile(tap: () {
-                            editContact(contact, context);
-                          }),
-                          con.con.edit.company.onListTile(tap: () {
-                            editContact(contact, context);
-                          }),
-                          con.con.edit.jobTitle.onListTile(tap: () {
-                            editContact(contact, context);
-                          }),
-                        ]),
-                      )
-                    ]))));
-  }
+                            }),
+                      ]),
+                body: CustomScrollView(slivers: <Widget>[
+                  SliverList(
+                    delegate: SliverChildListDelegate(<Widget>[
+                      con.edit.givenName.onListTile(tap: () {
+                        editContact(contact, context);
+                      }),
+                      con.edit.middleName.onListTile(tap: () {
+                        editContact(contact, context);
+                      }),
+                      con.edit.familyName.onListTile(tap: () {
+                        editContact(contact, context);
+                      }),
+                      con.edit.prefix.onListTile(tap: () {
+                        editContact(contact, context);
+                      }),
+                      con.edit.suffix.onListTile(tap: () {
+                        editContact(contact, context);
+                      }),
+                      con.edit.company.onListTile(tap: () {
+                        editContact(contact, context);
+                      }),
+                      con.edit.jobTitle.onListTile(tap: () {
+                        editContact(contact, context);
+                      }),
+                    ]),
+                  )
+                ]),
+                bottomNavigationBar: SimpleBottomAppBar(
+                  button01: HomeBarButton(onPressed: () {
+                    Navigator.of(context).pop();
+                  }),
+                  button02: SearchBarButton(),
+                  button03: EditBarButton(onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (BuildContext context) => AddContactPage(
+                            contact: contact, title: 'Edit a contact')));
+                  }),
+                ),
+              )));
 
   editContact(m.Contact contact, BuildContext context) async {
     await Navigator.of(context).push(MaterialPageRoute(

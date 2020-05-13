@@ -42,6 +42,15 @@ class Controller extends ControllerMVC {
   }
   Contact con;
 
+  Text get title => con.edit.displayName.text;
+
+  // Reference the 'edit' class.
+  ContactEdit get edit => con.edit;
+
+  ContactList get list => con.list;
+
+  Future<bool> delete(Object contact) async => con.delete(contact);
+
   // Access to the app controller
   MyAppController get app => _app ??= MyAppController();
   MyAppController _app;

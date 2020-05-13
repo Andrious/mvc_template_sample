@@ -60,7 +60,7 @@ class ContactListState extends StateMVC<MyHome> {
           ),
           AppMenu.show(this),
         ]),
-        drawer: platformDrawer(AppCon(), this),
+        drawer: platformDrawer(this),
         floatingActionButton: FloatingActionButton(
             child: Icon(Icons.add),
             onPressed: () async {

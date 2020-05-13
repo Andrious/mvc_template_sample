@@ -118,13 +118,15 @@ class ContactList extends ContactFields {
 
   Future<List<Contact>> refresh() async {
     _contacts = await con.getContacts();
-    con.setBuild();
+    con.refresh();
     return _contacts;
   }
 
+  void onPressed() => sort();
+
   void sort() async {
     _contacts = await con.sort();
-    con.setBuild();
+    con.refresh();
   }
 
   void init([Object contact]) {
@@ -209,7 +211,7 @@ class ContactFields {
   set email(Email email) => _email = email;
 
   Street get street => _street;
-  set street(Street street) => _street = email;
+  set street(Street street) => _street = street;
 
   City get city => _city;
   set city(City city) => _city = city;
