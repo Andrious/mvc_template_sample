@@ -64,6 +64,8 @@ class Contact extends ControllerMVC {
   ContactList get list => _listContacts;
   ContactList _listContacts;
 
+  Text get title => edit.displayName.text;
+
   @override
   void dispose() {
     _model.dispose();

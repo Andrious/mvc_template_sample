@@ -1,3 +1,7 @@
+## 1.3.1
+ May 15, 2020
+- get title in Contact.dart; ContactDetailsPage use Contact(); 
+
 ## 1.3.0
  May 12, 2020
 - Replace con.setBuild(); with con.refresh(); _street = street; con.title; con = AppCon();

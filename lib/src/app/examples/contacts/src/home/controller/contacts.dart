@@ -106,11 +106,10 @@ class ContactEdit extends ContactList {
 }
 
 class ContactList extends ContactFields {
-  ContactList(this.con)
-      : //_con = c.Contact(),
-        super();
+  ContactList(this.con) : super();
   final c.Contact con;
   Contact _contact;
+
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
   List<Contact> get items => _contacts;

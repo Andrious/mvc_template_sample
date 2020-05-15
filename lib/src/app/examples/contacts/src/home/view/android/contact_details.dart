@@ -33,12 +33,12 @@ enum AppBarBehavior { normal, pinned, floating, snapping }
 
 class ContactDetailsPage extends StatelessWidget {
   ContactDetailsPage({this.contact, Key key})
-      : con = Controller(),
+      : con = Contact(),
         super(key: key) {
     con.edit.init(contact);
   }
   final Object contact;
-  final Controller con;
+  final Contact con;
 
   @override
   Widget build(BuildContext context) => Theme(

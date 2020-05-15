@@ -40,6 +40,7 @@ class Controller extends ControllerMVC {
   Controller._() : super() {
     con = Contact();
   }
+  /// Introduce the Contact controller for the view/ios/ios.dart
   Contact con;
 
   Text get title => con.edit.displayName.text;

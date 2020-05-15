@@ -48,7 +48,6 @@ class _AddContactState extends StateMVC<AddContactPage> {
   void initState() {
     super.initState();
     con.add.init(widget.contact);
-    //   _address = PostalAddress(label: "Home");
   }
 
   @override
