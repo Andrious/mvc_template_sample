@@ -1,3 +1,9 @@
+## 1.4.0
+ May 18, 2020
+- Class Item renamed DataFieldItem
+- mvc_application: ^5.0.0
+- Add mvc_template_sample.zip to git
+
 ## 1.3.1
  May 15, 2020
 - get title in Contact.dart; ContactDetailsPage use Contact(); 

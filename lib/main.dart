@@ -27,10 +27,9 @@ import 'package:mvc_template/src/controller.dart' show AppCon;
 void main() => runApp(MyApp());
 
 class MyApp extends App {
+  /// Note, all the parameters available to you are being outlined here.
+  /// I'm passing null just so you see that they exist.
   MyApp()
-
-      /// Note, all the parameters available to you are being outlined here.
-      /// I'm passing null just so you see that they exist.
       : super(
           con: AppCon(),
           key: null,

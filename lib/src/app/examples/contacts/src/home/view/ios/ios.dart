@@ -90,7 +90,10 @@ class MyiOS extends StateMVC<MyHome> {
                       top: true,
                       child: Column(
                         children: <Widget>[
-                          Container(color: Colors.yellow, padding: EdgeInsets.all(4.0), child: CupertinoTextField()),
+                          Container(
+                              color: Colors.yellow,
+                              padding: EdgeInsets.all(4.0),
+                              child: CupertinoTextField()),
                           Material(
                             child: AddContactPage(),
                           )
@@ -106,7 +109,10 @@ class MyiOS extends StateMVC<MyHome> {
                     top: true,
                     child: Column(
                       children: <Widget>[
-                        Container(color: Colors.yellow, padding: EdgeInsets.all(16.0), child: CupertinoTextField()),
+                        Container(
+                            color: Colors.yellow,
+                            padding: EdgeInsets.all(16.0),
+                            child: CupertinoTextField()),
                         Material(child: const Text('Settings'))
                       ],
                     )),

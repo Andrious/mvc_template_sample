@@ -26,7 +26,7 @@
 ///
 import 'package:mvc_template/src/model.dart';
 
-import 'package:mvc_template/src/view.dart' show Item;
+import 'package:mvc_template/src/view.dart' show DataFieldItem;
 
 class Contacts extends SQLiteDB {
   factory Contacts() => _this;
@@ -137,11 +137,11 @@ class Contacts extends SQLiteDB {
       List<Map<String, dynamic>> phones = await _this.rawQuery(
           'SELECT * FROM Phones WHERE userid = ${contact['id']} AND deleted = 0');
       aContact.phones =
-          phones.map((m) => Item.fromMap(m, 'label', 'phone')).toList();
+          phones.map((m) => DataFieldItem.fromMap(m, 'label', 'phone')).toList();
       List<Map<String, dynamic>> emails = await _this.rawQuery(
           'SELECT * FROM Emails WHERE userid = ${contact['id']} AND deleted = 0');
       aContact.emails =
-          emails.map((m) => Item.fromMap(m, 'label', 'email')).toList();
+          emails.map((m) => DataFieldItem.fromMap(m, 'label', 'email')).toList();
       List<Map<String, dynamic>> addresses = await _this.rawQuery(
           'SELECT * FROM Addresses WHERE userid = ${contact['id']} AND deleted = 0');
 //      aContact.postalAddresses = addresses.map((m) => Item.fromMap(m));
